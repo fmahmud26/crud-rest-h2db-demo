@@ -1,6 +1,7 @@
 package org.example.crudresth2dbdemo.controller;
 
 
+import jakarta.validation.Valid;
 import org.example.crudresth2dbdemo.dto.BookDto;
 import org.example.crudresth2dbdemo.service.BookService;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ public class BookController {
     }
 
     @PostMapping("/book")
-    public ResponseEntity<BookDto> addBook(@RequestBody BookDto bookDto) {
+    public ResponseEntity<BookDto> addBook(@Valid @RequestBody BookDto bookDto) {
         return new ResponseEntity<>(bookService.addBook(bookDto), HttpStatus.CREATED);
     }
 
